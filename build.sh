@@ -11,7 +11,7 @@ if [[ -z $(which docker) ]]; then
 fi
 
 
-declare IMAGE_NAME="bachelorthesis/gainmaster-user-service"
+declare IMAGE_NAME="bachelorthesis/gainmaster-user-measurements-service"
 
 
 function build {
