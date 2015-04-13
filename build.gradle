@@ -13,6 +13,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'spring-boot'
 apply plugin: 'idea'
+apply plugin: 'war'
 
 bootRepackage { //TODO: Why am i here
     mainClass = 'gainmaster.service.user.measurements.Application'
@@ -23,11 +24,16 @@ springBoot { //TODO: Why am i here
 }
 
 jar {
-    baseName = 'gainmastar-user-measurements-service'
+    baseName = 'gainmastar-body-measurements-service'
     version =  '0.1.0'
 }
 
-idea { //TODO: Why am i here... Something about springloaded?
+war {
+    baseName = 'gainmastar-body-measurements-service'
+    version =  '0.1.0'
+}
+
+idea { //Tell IntelliJ where to put compiled classes so springloaded works
     module {
         inheritOutputDirs = false
         outputDir = file("$buildDir/classes/main/")
