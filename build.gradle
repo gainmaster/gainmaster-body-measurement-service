@@ -24,12 +24,12 @@ springBoot { //TODO: Why am i here
 }
 
 jar {
-    baseName = 'gainmaster-body-measurements-service'
+    baseName = 'gainmaster-body-measurement-service'
     version =  '0.1.0'
 }
 
 war {
-    baseName = 'gainmaster-body-measurements-service'
+    baseName = 'gainmaster-body-measurement-service'
     version =  '0.1.0'
 }
 
