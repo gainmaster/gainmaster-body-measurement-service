@@ -1,10 +1,6 @@
-FROM bachelorthesis/java:latest
+FROM gainmaster/java
 MAINTAINER Tony Hesjevik <tony@hesjevik.no>
 
-COPY ./ /srv/http/gainmaster-body-measurement-service
+COPY build/libs/gainmaster-body-measurement-service-0.1.0.war /src/http/gainmaster-body-measurement-service-0.1.0.war
 
-WORKDIR /srv/http/gainmaster-body-measurement-service
-
-RUN ["./gradlew", "build"]
-
-CMD ["java", "-jar", "./build/libs/gainmaster-body-measurement-service-0.1.0.war"]
+CMD ["java", "-jar", "/src/http/gainmaster-body-measurement-service-0.1.0.war"]
