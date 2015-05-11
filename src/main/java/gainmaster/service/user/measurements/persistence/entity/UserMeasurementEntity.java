@@ -1,4 +1,4 @@
-package gainmaster.service.user.measurements.entity;
+package gainmaster.service.user.measurements.persistence.entity;
 
 import javax.persistence.*;
 

@@ -1,10 +1,9 @@
 package gainmaster.service.user.measurements.web.rest.resource.assembler;
 
-import gainmaster.service.user.measurements.entity.UserMeasurementEntity;
+import gainmaster.service.user.measurements.persistence.entity.UserMeasurementEntity;
 import gainmaster.service.user.measurements.web.rest.endpoint.UserMeasurementsEndpoint;
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementResource;
 
-import org.springframework.hateoas.core.Relation;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import org.springframework.stereotype.Component;
 

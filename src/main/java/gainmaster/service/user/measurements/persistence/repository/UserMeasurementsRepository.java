@@ -1,6 +1,6 @@
-package gainmaster.service.user.measurements.repository;
+package gainmaster.service.user.measurements.persistence.repository;
 
-import gainmaster.service.user.measurements.entity.UserMeasurementEntity;
+import gainmaster.service.user.measurements.persistence.entity.UserMeasurementEntity;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

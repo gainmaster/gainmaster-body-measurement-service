@@ -1,6 +1,6 @@
 package gainmaster.service.user.measurements.web.rest.resource.assembler;
 
-import gainmaster.service.user.measurements.entity.UserMeasurementEntity;
+import gainmaster.service.user.measurements.persistence.entity.UserMeasurementEntity;
 import gainmaster.service.user.measurements.web.rest.endpoint.UserMeasurementsEndpoint;
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementCollectionResource;
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementResource;

@@ -1,7 +1,7 @@
 package gainmaster.service.user.measurements.web.rest.endpoint;
 
-import gainmaster.service.user.measurements.entity.UserMeasurementEntity;
-import gainmaster.service.user.measurements.repository.UserMeasurementsRepository;
+import gainmaster.service.user.measurements.persistence.entity.UserMeasurementEntity;
+import gainmaster.service.user.measurements.persistence.repository.UserMeasurementsRepository;
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementCollectionResource;
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementHistoryResource;
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementResource;
