@@ -51,12 +51,13 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-amqp")
 
     compile("com.h2database:h2")
     compile("mysql:mysql-connector-java")
-    compile("javax.inject:javax.inject:1")
     compile("org.springframework.hateoas:spring-hateoas")
-    compile("org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE") // Makes REST resources render with HAL
+    compile("org.springframework.security.oauth:spring-security-oauth2:2.0.7.RELEASE")
+    compile("org.springframework.plugin:spring-plugin-core:1.1.0.RELEASE") // Makes REST resources render with HAL TODO:REMOVE
     compile("com.fasterxml.jackson.core:jackson-databind")
     testCompile("junit:junit")
 }

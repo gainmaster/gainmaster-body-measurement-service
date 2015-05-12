@@ -5,10 +5,9 @@ import gainmaster.service.user.measurements.web.rest.endpoint.UserMeasurementsEn
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementCollectionResource;
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementResource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import org.springframework.stereotype.Component;
-
-import javax.inject.Inject;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
@@ -17,7 +16,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 public class UserMeasurementCollectionResourceAssembler extends
     ResourceAssemblerSupport<Iterable<UserMeasurementEntity>, UserMeasurementCollectionResource> {
 
-    @Inject
+    @Autowired
     private UserMeasurementResourceAssembler userMeasurementResourceAssembler;
 
 

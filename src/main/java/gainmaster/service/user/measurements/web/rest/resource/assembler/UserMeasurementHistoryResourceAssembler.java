@@ -4,11 +4,10 @@ import gainmaster.service.user.measurements.persistence.entity.UserMeasurementEn
 import gainmaster.service.user.measurements.web.rest.endpoint.UserMeasurementsEndpoint;
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementHistoryResource;
 import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementResource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.*;
 import org.springframework.hateoas.mvc.ResourceAssemblerSupport;
 import org.springframework.stereotype.Component;
-
-import javax.inject.Inject;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 
@@ -16,10 +15,10 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 public class UserMeasurementHistoryResourceAssembler extends
     ResourceAssemblerSupport<Iterable<UserMeasurementEntity>, UserMeasurementHistoryResource> {
 
-    @Inject
+    @Autowired
     private UserMeasurementResourceAssembler userMeasurementResourceAssembler;
 
-    @Inject
+    @Autowired
     private EntityLinks links;
 
     UserMeasurementHistoryResourceAssembler() {

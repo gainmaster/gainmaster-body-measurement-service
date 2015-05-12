@@ -8,13 +8,14 @@ import gainmaster.service.user.measurements.web.rest.resource.UserMeasurementRes
 
 import gainmaster.service.user.measurements.web.rest.resource.assembler.UserMeasurementCollectionResourceAssembler;
 import gainmaster.service.user.measurements.web.rest.resource.assembler.UserMeasurementHistoryResourceAssembler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.ExposesResourceFor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import javax.inject.Inject;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,18 +26,19 @@ import java.util.List;
 @RequestMapping("/users/{userId}/measurements")
 public class UserMeasurementsEndpoint {
 
-    @Inject
+    @Autowired
     private UserMeasurementsRepository userMeasurementsRepository;
 
-    @Inject
+    @Autowired
     private UserMeasurementCollectionResourceAssembler userMeasurementCollectionResourceAssembler;
 
-    @Inject
+    @Autowired
     private UserMeasurementHistoryResourceAssembler userMeasurementHistoryResourceAssembler;
 
     /**
      * Get user measurements
      */
+    @PreAuthorize("authentication.name == #id")
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity getMeasurementCollection(
         @PathVariable("userId") Long userId
