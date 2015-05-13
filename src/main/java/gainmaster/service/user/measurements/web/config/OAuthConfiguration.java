@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 public class OAuthConfiguration extends ResourceServerConfigurerAdapter {
 
     @Autowired
-    @Value("#{oauthDatasource}")
+    @Value("#{oauthDataSource}")
     DataSource oauthDatasource;
 
     @Override

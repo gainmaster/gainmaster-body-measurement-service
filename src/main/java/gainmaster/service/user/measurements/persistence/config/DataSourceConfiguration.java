@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Primary;
 import javax.sql.DataSource;
 
 @Configuration
-public class DatabaseConfiguration {
+public class DataSourceConfiguration {
 
     @Bean
     @Primary
@@ -18,7 +18,7 @@ public class DatabaseConfiguration {
         return DataSourceBuilder.create().build();
     }
 
-    @Bean(name = "oauthDatasource")
+    @Bean(name = "oauthDataSource")
     @ConfigurationProperties(prefix="spring.datasource.oauth")
     public DataSource oauthDataSource() {
         return DataSourceBuilder.create().build();

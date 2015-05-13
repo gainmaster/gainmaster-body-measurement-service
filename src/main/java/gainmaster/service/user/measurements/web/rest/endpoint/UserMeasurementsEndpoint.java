@@ -25,7 +25,7 @@ import java.util.List;
 
 @RestController
 @ExposesResourceFor(UserMeasurementResource.class)
-@RequestMapping("/users/{userId}/measurements")
+@RequestMapping("/users/{username}/measurements")
 public class UserMeasurementsEndpoint {
 
     @Autowired
@@ -43,7 +43,7 @@ public class UserMeasurementsEndpoint {
     //@PreAuthorize("principal == 'steinar'")
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity getMeasurementCollection(
-        @PathVariable("userId") Long userId
+        @PathVariable("username") String username
     ) {
         Authentication authentication = SecurityContextHolder.getContext()
             .getAuthentication();
@@ -51,14 +51,14 @@ public class UserMeasurementsEndpoint {
         System.out.println(authentication.getPrincipal());
         List<UserMeasurementEntity> userMeasurementEntities = new ArrayList<UserMeasurementEntity>();
 
-        for (Object[] object : userMeasurementsRepository.getAllPropertiesNewestMeasurementByUserId(userId)) {
+        for (Object[] object : userMeasurementsRepository.getAllPropertiesNewestMeasurementByUsername(username)) {
             String property = (String) object[0];
             Date date = (Date) object[1];
-            userMeasurementEntities.add(userMeasurementsRepository.getByUserIDAndDateAndProperty(userId, date, property));
+            userMeasurementEntities.add(userMeasurementsRepository.getByUsernameAndDateAndProperty(username, date, property));
         }
 
         return new ResponseEntity<UserMeasurementCollectionResource>(
-            userMeasurementCollectionResourceAssembler.toResource(userMeasurementEntities, userId),
+            userMeasurementCollectionResourceAssembler.toResource(userMeasurementEntities, username),
             HttpStatus.OK
         );
     }
@@ -66,17 +66,17 @@ public class UserMeasurementsEndpoint {
     /**
      * Add user measurement
      *
-     * @param userId
+     * @param username
      * @param userMeasurementResource
      * @return
      */
     @RequestMapping(method = RequestMethod.PUT)
     public ResponseEntity addMeasurement(
-        @PathVariable("userId") Long userId,
+        @PathVariable("username") String username,
         @Valid @RequestBody UserMeasurementResource userMeasurementResource
     ) {
         UserMeasurementEntity userMeasurementEntity = new UserMeasurementEntity();
-        userMeasurementEntity.setUserId(userId);
+        userMeasurementEntity.setUsername(username);
         userMeasurementEntity.setProperty(userMeasurementResource.getProperty());
         userMeasurementEntity.setMagnitude(userMeasurementResource.getMagnitude());
         userMeasurementEntity.setUnit(userMeasurementResource.getUnit());
@@ -94,20 +94,20 @@ public class UserMeasurementsEndpoint {
     /**
      * Get user measurement history
      *
-     * @param userId
+     * @param username
      * @param property
      * @return
      */
     @RequestMapping(value = "/{property}", method = RequestMethod.GET)
     public ResponseEntity<UserMeasurementHistoryResource> getMeasurementHistoy(
-        @PathVariable("userId") Long userId,
+        @PathVariable("username") String username,
         @PathVariable("property") String property
     ) {
         Iterable<UserMeasurementEntity> userMeasurementEntities =
-            userMeasurementsRepository.getUserMeasurementsByProperty(userId, property);
+            userMeasurementsRepository.getUserMeasurementsByProperty(username, property);
 
         return new ResponseEntity<UserMeasurementHistoryResource>(
-            userMeasurementHistoryResourceAssembler.toResource(userMeasurementEntities, userId, property),
+            userMeasurementHistoryResourceAssembler.toResource(userMeasurementEntities, username, property),
             HttpStatus.OK
         );
     }

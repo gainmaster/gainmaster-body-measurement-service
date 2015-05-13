@@ -14,8 +14,8 @@ public class UserMeasurementEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @Column(name = "username", nullable = false, length = 255)
+    private String username;
 
     @Column(name = "property", nullable = false, length = 255)
     private String property;
@@ -32,9 +32,9 @@ public class UserMeasurementEntity {
     public UserMeasurementEntity() {
     }
 
-    public UserMeasurementEntity(Long id, Long userId, String property, BigDecimal magnitude, String unit, Date date) {
+    public UserMeasurementEntity(Long id, String username, String property, BigDecimal magnitude, String unit, Date date) {
         this.id = id;
-        this.userId = userId;
+        this.username = username;
         this.property = property;
         this.magnitude = magnitude;
         this.unit = unit;
@@ -45,12 +45,12 @@ public class UserMeasurementEntity {
         return id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getProperty() {

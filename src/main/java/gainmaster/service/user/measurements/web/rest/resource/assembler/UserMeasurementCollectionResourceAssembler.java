@@ -24,9 +24,9 @@ public class UserMeasurementCollectionResourceAssembler extends
         super(UserMeasurementsEndpoint.class, UserMeasurementCollectionResource.class);
     }
 
-    public UserMeasurementCollectionResource toResource(Iterable<UserMeasurementEntity> entities, Long userId) {
+    public UserMeasurementCollectionResource toResource(Iterable<UserMeasurementEntity> entities, String username) {
         UserMeasurementCollectionResource resource = toResource(entities);
-        resource.add(linkTo(methodOn(UserMeasurementsEndpoint.class).getMeasurementCollection(userId)).withSelfRel());
+        resource.add(linkTo(methodOn(UserMeasurementsEndpoint.class).getMeasurementCollection(username)).withSelfRel());
         return resource;
     }
 

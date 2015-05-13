@@ -25,9 +25,9 @@ public class UserMeasurementHistoryResourceAssembler extends
         super(UserMeasurementsEndpoint.class, UserMeasurementHistoryResource.class);
     }
 
-    public UserMeasurementHistoryResource toResource(Iterable<UserMeasurementEntity> entities, Long userId, String property) {
+    public UserMeasurementHistoryResource toResource(Iterable<UserMeasurementEntity> entities, String username, String property) {
         UserMeasurementHistoryResource resource = toResource(entities);
-        resource.add(linkTo(UserMeasurementsEndpoint.class, userId).slash(property).withSelfRel());
+        resource.add(linkTo(UserMeasurementsEndpoint.class, username).slash(property).withSelfRel());
         return resource;
     }
 

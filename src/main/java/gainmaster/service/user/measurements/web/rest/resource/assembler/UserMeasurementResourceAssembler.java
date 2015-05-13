@@ -20,8 +20,8 @@ public class UserMeasurementResourceAssembler extends
 
     @Override
     public UserMeasurementResource toResource(UserMeasurementEntity entity) {
-        UserMeasurementResource resource = createResourceWithId(entity.getId(), entity, entity.getUserId());
-        resource.add(linkTo(methodOn(UserMeasurementsEndpoint.class).getMeasurementHistoy(entity.getUserId(), entity.getProperty())).withRel("history"));
+        UserMeasurementResource resource = createResourceWithId(entity.getId(), entity, entity.getUsername());
+        resource.add(linkTo(methodOn(UserMeasurementsEndpoint.class).getMeasurementHistoy(entity.getUsername(), entity.getProperty())).withRel("history"));
         return resource;
     }
 
