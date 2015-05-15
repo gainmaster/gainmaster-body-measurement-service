@@ -33,7 +33,8 @@ public class OAuthConfiguration extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         //Allow OPTIONS preflight request
-        http.authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/users/*/measurements*").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/users/*/measurements").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/users/*/measurements/*").permitAll();
         http.authorizeRequests().anyRequest().authenticated();
     }
 
